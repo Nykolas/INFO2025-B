@@ -1,22 +1,4 @@
 '''
-def suma_listas(lista_entrada):
-	suma = 0
-	for n in lista_entrada:
-		suma = suma + n
-	return suma
-
-lista0 = [36, 25, 64, 19, 7, 26, 46, 21, 87, 6, 71, 94, 71, 43, 34, 76, 60, 99, 41, 32, 17, 39, 17, 89, 1, 42, 61, 72, 43, 20]
-lista1 = [8,6,11,23,118,21,145]
-lista2 = [3,16,4,233,19]
-
-s0 = suma_listas(lista0)
-s1 = suma_listas(lista1)
-s2 = suma_listas(lista2)
-print(s0)
-print(s1)
-print(s2)
-'''
-'''
 #Vamos a ver en este archivo:
 #A) como se define una funcion
 #B) como se le pasa parametros.
@@ -79,4 +61,50 @@ y = int(input("ingrese el Segundo numero: "))
 resultado = suma(x,y)
 print(f"la suma da {resultado}")
 '''
+#D) -multiparametros
+#si existen varios parametros, python tiene en cuenta el orden
+
+#-parametros por defecto
+'''
+def calcular_precio(costo, iva = 1.21):
+	total = costo * iva
+	return total
+
+#esto significa que yo puedo llamar a la funcion, con 2 parametors o 1 solo
+o1 = calcular_precio(100)
+o2 = calcular_precio(100,1.105)
+print(o1)
+print(o2)
+'''
+#-valores desconocidos
+
+# *ARGS
+#definir una funcion para recibir una cantidad dinamica de paremtros
+
+#python va a guardar todos los paramteros que no tienen lugar en la definicion
+#en una LISTA que se llama args
+
+def saludar(nombre1,nombre2, *args):
+	print(f"Hola {nombre1}")
+	print(f"Hola {nombre2}")
+	for i in args:
+		print(f"Hola {i}")
+
+saludar('Nicolas','Marianela','Carlos','Juan','Pedro')
+
+def suma(*args):
+	r=0
+	for x in args:
+		r += x
+	return r
+
+res1 = suma(3,4,5)
+res2 = suma(2,14,15,67,87,98)
+print(res1)
+print(res2)
+
+# **KWARGS
+#lo mismo que antes, pero en lugar de guardar muchos valores 'desconocidos'
+#en una lista, guarda pares clave valor en un diccionario
+
 
