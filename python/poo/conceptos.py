@@ -51,3 +51,5 @@ print("---------------------")
 print("los nuevos promedio son")
 for p in lista_personas:
 	print(f"el estudiante {p.getNombre()}, tiene un promedio de {p.getPromedio()}")
+
+
