@@ -42,7 +42,7 @@ class Libreria():
     def mostrar_libros(self):
         print('Libros en la biblioteca:')
         for libro in self.libros:
-            print(f"- {libro.titulo} por {libro.autor}")
+            print(f"- {libro.titulo} por {libro.autor}, esta prestado? {libro.esta_prestado()}")
 
     def mostrar_lectores(self):
         print("Lectores registrados:")
@@ -52,6 +52,7 @@ class Libreria():
     def buscar_libro(self,titulo):
         for libro in self.libros:
             if libro.titulo == titulo:
+                #me retorna el objeto de libro
                 return libro
         print(f"El libro no se encuentra en esta libreria")
     
@@ -78,8 +79,13 @@ libreria1.agregar_libro(libro1)
 
 titulo = input("que libro quiere llevar: ")
 libro_a_prestar = libreria1.buscar_libro(titulo)
-
 libreria1.prestar_libro(libro_a_prestar, lector1)
+
+titulo = input("que libro quiere llevar: ")
+libro_a_prestar = libreria1.buscar_libro(titulo)
+libreria1.prestar_libro(libro_a_prestar, lector1)
+
+
 
 libreria1.mostrar_libros()
 

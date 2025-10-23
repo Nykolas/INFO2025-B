@@ -1,0 +1,85 @@
+
+🐶 Sistema de Veterinaria 
+
+🎯 Objetivo general
+
+Desarrollar un sistema que permita gestionar los pacientes (mascotas), los dueños, los servicios y las consultas de una veterinaria.
+El proyecto debe aplicar Programación Orientada a Objetos (POO), funciones, diccionarios, listas y estructuras de iteración para simular las operaciones reales de una veterinaria.
+
+🧱 Instrucciones generales
+
+1. Clase Mascota
+
+Cada mascota registrada en la veterinaria tendrá los siguientes atributos:
+
+nombre
+
+edad
+
+especie (perro, gato, conejo, etc.)
+
+peso
+
+historial_medico (una lista de atenciones o tratamientos)
+
+
+Métodos:
+
+mostrar_info() → muestra todos los datos de la mascota.
+
+agregar_consulta(descripcion) → añade una entrada al historial médico.
+
+cumplir_años() → aumenta en 1 la edad de la mascota.
+
+actualizar_peso(nuevo_peso) → cambia el peso y lo registra en el historial.
+
+
+2. Clase Dueño
+
+Representa al propietario de una o más mascotas.
+Atributos:
+
+nombre
+
+telefono
+
+mascotas: Lista de mascotas
+
+
+Métodos:
+
+registrar_mascota(mascota) → agrega una nueva mascota
+
+mostrar_mascotas() → imprime la lista de mascotas con su especie.
+
+buscar_mascota(nombre) → devuelve la mascota si existe.
+
+
+3. Clase Veterinaria
+
+Será la clase principal del sistema.
+
+Atributos:
+
+nombre
+
+clientes: (lista de objetos Dueño)
+
+servicios (diccionario con clave = nombre del servicio, valor = precio)
+
+
+Métodos:
+
+registrar_dueño(dueño) → agrega un nuevo dueño a la lista.
+
+mostrar_dueños() → imprime todos los dueños registrados.
+
+buscar_dueño(nombre) → retorna el objeto del dueño si existe.
+
+agregar_servicio(nombre_servicio, precio) → añade un servicio al catálogo.
+
+mostrar_servicios() → lista todos los servicios con su precio.
+
+registrar_consulta(nombre_dueño, nombre_mascota, servicio) → simula una consulta veterinaria y actualiza el historial de la mascota.
+
+generar_factura(nombre_dueño, nombre_mascota, servicio) → calcula el costo total y muestra el detalle.
