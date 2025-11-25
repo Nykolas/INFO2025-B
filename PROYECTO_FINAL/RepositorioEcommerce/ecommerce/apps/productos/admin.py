@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Rubros, Producto
+
+admin.site.register(Rubros)
+admin.site.register(Producto)

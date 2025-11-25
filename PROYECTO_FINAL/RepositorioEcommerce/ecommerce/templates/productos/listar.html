@@ -3,5 +3,14 @@
 {% block contenido %}
 	<div>
 		<h1>SOY EL QUE LISTA LOS PRODUCTOS</h1>
+
+		{% for p in productos %}
+			<ul>
+				<li>{{p.nombre}}</li>
+				<li>{{p.precio}}</li>
+				<li>{{p.rubro}}</li>
+			</ul>
+		{% endfor %}
+
 	</div>	
 {% endblock contenido %}
