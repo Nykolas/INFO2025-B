@@ -2,8 +2,10 @@
 
 {% block contenido %}
 	<div>
+		<div>
 		<h1>SOY EL QUE LISTA LOS PRODUCTOS</h1>
-
+		<a href="{% url 'productos:path_crear_producto' %}">CREAR PRODUCTO</a>
+		</div>
 		{% for p in productos %}
 			<ul style="display: inline-block;">
 				<a href="{% url 'productos:path_detalle_producto' p.pk %}">
@@ -12,8 +14,12 @@
 				<li>{{p.nombre}}</li>
 				<li>{{p.precio}}</li>
 				<li>{{p.rubro}}</li>
+				<li>{{p.stock}}</li>
+			
+			<li><a href="{% url 'productos:path_detalle_producto' p.pk %}">Detalle</a></li>
+			<li><a href="{% url 'productos:path_modificar_producto' p.pk %}">Modificar</a></li>
+			<li><a href="{% url 'productos:path_eliminar_producto' p.pk %}">Eliminar</a></li>
 			</ul>
-			<a href="{% url 'productos:path_detalle_producto' p.pk %}">Detalle</a>
 		{% endfor %}
 
 	</div>	

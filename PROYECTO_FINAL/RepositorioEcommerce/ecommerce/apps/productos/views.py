@@ -2,7 +2,9 @@ from django.shortcuts import render
 from .models import Producto
 
 from django.views.generic import DetailView
-
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from .forms import FormularioCrearProducto, FormularioModificarProducto
 
 def Listar_Productos(request):
 	#ORM
@@ -37,3 +39,20 @@ def Detalle_Producto_Funcion(request, pk):
 class Detalle_Producto_Clase(DetailView):
 	model = Producto
 	template_name = 'productos/detalle.html'
+
+class Crear_Producto(CreateView):
+	model = Producto
+	template_name = 'productos/crear.html'
+	form_class = FormularioCrearProducto
+	success_url = reverse_lazy('productos:path_listar_productos')
+
+class Modificar_Producto(UpdateView):
+	model = Producto
+	template_name = 'productos/modificar.html'
+	form_class = FormularioModificarProducto
+	success_url = reverse_lazy('productos:path_listar_productos')
+
+class Eliminar_Producto(DeleteView):
+	model = Producto
+	template_name = 'productos/eliminar.html'
+	success_url = reverse_lazy('productos:path_listar_productos')

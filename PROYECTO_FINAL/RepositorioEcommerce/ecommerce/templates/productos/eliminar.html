@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+	
+	<form method="post">{% csrf_token %}
+    	<p>Estas seguro que desa eliminar: "{{ producto }}"?</p>
+	    {{ form }}
+	    <input type="submit" value="CONFIRMAR">
+	    <a href="{% url 'productos:path_listar_productos' %}"> CANCELAR</a>
+	</form>
+
+{% endblock contenido %}

@@ -11,6 +11,10 @@ urlpatterns = [
     #path('detalle/<int:pk>', views.Detalle_Producto_Funcion, name = 'path_detalle_producto'),
 
     #DETALLE DE UN PRODUCTO CON UNA CLASE (VBC)
-    path('detalle/<int:pk>', views.Detalle_Producto_Clase.as_view(), name = 'path_detalle_producto')
+    path('detalle/<int:pk>', views.Detalle_Producto_Clase.as_view(), name = 'path_detalle_producto'),
     
+    #ABM
+    path('crear/', views.Crear_Producto.as_view(),name = 'path_crear_producto'),
+    path('modificar/<int:pk>', views.Modificar_Producto.as_view(),name = 'path_modificar_producto'),
+    path('Eliminar/<int:pk>', views.Eliminar_Producto.as_view(), name = 'path_eliminar_producto')
 ]
