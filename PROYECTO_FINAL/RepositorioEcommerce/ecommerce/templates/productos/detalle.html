@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+	<div>
+		<h1>DETALLE DEL PRODUCTO  {{ producto.nombre}}</h1>
+
+		
+			<ul style="display: inline-block;">
+				<img src="{{ producto.imagen.url }}" width="200">
+				<li>{{producto.nombre}}</li>
+				<li>{{producto.precio}}</li>
+				<li>{{producto.rubro}}</li>
+				<li>{{producto.descripcion}}</li>
+			</ul>
+		
+
+	</div>	
+{% endblock contenido %}

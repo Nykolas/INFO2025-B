@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from .models import Producto
 
+from django.views.generic import DetailView
+
 
 def Listar_Productos(request):
-
 	#ORM
 	#es qeuivalente a hacer un "select * from producto"
 	#ESTO ES LA ORM Producto.objects.all()
@@ -22,3 +23,17 @@ def Listar_Productos(request):
 	# al template le paso algo asi  {'prodcutos': [obj_coca,obj_leche,obj_pan]}
 	# el template lo automaticamente en esto
 	# productos = [obj_coca,obj_leche,obj_pan]
+
+
+def Detalle_Producto_Funcion(request, pk):
+	#el Get se usa cuando filtro por la clave,
+	#esto es porque siempre el resultado es un SOLO objeto
+	producto = Producto.objects.get(pk = pk)
+	context = {}
+	context['producto'] = producto
+	return render (request,'productos/detalle.html', context)
+
+#VBC
+class Detalle_Producto_Clase(DetailView):
+	model = Producto
+	template_name = 'productos/detalle.html'

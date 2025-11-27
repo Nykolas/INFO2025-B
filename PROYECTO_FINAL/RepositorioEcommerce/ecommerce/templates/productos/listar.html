@@ -5,11 +5,15 @@
 		<h1>SOY EL QUE LISTA LOS PRODUCTOS</h1>
 
 		{% for p in productos %}
-			<ul>
+			<ul style="display: inline-block;">
+				<a href="{% url 'productos:path_detalle_producto' p.pk %}">
+					<img src="{{ p.imagen.url }}" width="200">
+				</a>
 				<li>{{p.nombre}}</li>
 				<li>{{p.precio}}</li>
 				<li>{{p.rubro}}</li>
 			</ul>
+			<a href="{% url 'productos:path_detalle_producto' p.pk %}">Detalle</a>
 		{% endfor %}
 
 	</div>	
