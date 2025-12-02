@@ -17,6 +17,10 @@ def Listar_Productos(request):
 	#para pasar los datos al template se usa un diccionario
 	context = {}
 	context['productos'] = todos_productos
+
+	# LE PASO LOS RUBROS PARA PODER HACER EL FILTRO EN EL TEMPLATE
+	rubros = Rubros.objects.all()
+	context['rubros'] = rubros
 	return render(request,'productos/listar.html', context)
 	#el tempalte cuando recibe ese diccionario "contexto"
 	#automaticamente lo desempaqueta, es decir en el template
@@ -73,4 +77,6 @@ def Filtro_Rubro(request,pk):
 	p = Producto.objects.filter(rubro = r)
 	context = {}
 	context['productos'] = p
+	rubros = Rubros.objects.all()
+	context['rubros'] = rubros
 	return render(request,'productos/listar.html', context)

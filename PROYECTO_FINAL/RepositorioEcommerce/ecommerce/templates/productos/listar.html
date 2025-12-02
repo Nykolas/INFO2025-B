@@ -3,7 +3,12 @@
 {% block contenido %}
 	<div>
 		<div>
-		<h1>SOY EL QUE LISTA LOS PRODUCTOS</h1>
+		<h1>PRDOCUTOS DISPONIBLES </h1>
+		FILTRAR POR RUBRO:
+		{% for r in rubros %}
+			<a href="{% url 'productos:path_filtrados_rubro' r.pk %}"> {{r.nombre}} </a>
+		{% endfor %}
+		<br>
 		<a href="{% url 'productos:path_crear_producto' %}">CREAR PRODUCTO</a>
 		</div>
 		{% for p in productos %}
