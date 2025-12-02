@@ -16,5 +16,9 @@ urlpatterns = [
     #ABM
     path('crear/', views.Crear_Producto.as_view(),name = 'path_crear_producto'),
     path('modificar/<int:pk>', views.Modificar_Producto.as_view(),name = 'path_modificar_producto'),
-    path('Eliminar/<int:pk>', views.Eliminar_Producto.as_view(), name = 'path_eliminar_producto')
+    path('Eliminar/<int:pk>', views.Eliminar_Producto.as_view(), name = 'path_eliminar_producto'),
+
+    #RUBROS
+    path('rubros/', views.Listar_Rubros, name = 'path_listar_rubros'),
+    path('productosxrubro/<int:pk>', views.Filtro_Rubro, name = 'path_filtrados_rubro'),
 ]

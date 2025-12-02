@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Producto
+from .models import Producto, Rubros
 
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -56,3 +56,21 @@ class Eliminar_Producto(DeleteView):
 	model = Producto
 	template_name = 'productos/eliminar.html'
 	success_url = reverse_lazy('productos:path_listar_productos')
+
+
+def Listar_Rubros(request):
+	rubros = Rubros.objects.all()
+	context = {}
+	context['rubros'] = rubros
+	return render(request,'productos/rubros.html', context)
+
+def Filtro_Rubro(request,pk):
+	r = Rubros.objects.get(pk = pk)
+
+	#Esto es equivalente a.
+	# select * from producto where rubro = r
+	#siempre retorna una lista
+	p = Producto.objects.filter(rubro = r)
+	context = {}
+	context['productos'] = p
+	return render(request,'productos/listar.html', context)
