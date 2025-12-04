@@ -5,10 +5,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
-#from django.urls import reverse_lazy
-#LOGIN_REDIRECT_URL = reverse_lazy('path_home')
-#LOGOUT_REDIRECT_URL = reverse_lazy('path_home')
-#LOGIN_URL = reverse_lazy('usuarios:path_login')
+from django.urls import reverse_lazy
+LOGIN_REDIRECT_URL = reverse_lazy('path_home')
+LOGOUT_REDIRECT_URL = reverse_lazy('path_home')
+LOGIN_URL = reverse_lazy('usuarios:path_login')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.productos',
+    'apps.usuarios'
 ]
 
 MIDDLEWARE = [
